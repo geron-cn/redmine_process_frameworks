@@ -50,7 +50,7 @@ class InitSelectController < ApplicationController
     remove_model_help(@project)
     @project.model_id = params[:selected_model]
     @project.if_config_pf = true
-    @project.update_attributes(@project.attributes);
+    @project.save
     #activities_save
     sys_activities = ProcessModel.find(@project.model_id).activities
     sys_activities.each do |a|
@@ -60,7 +60,7 @@ class InitSelectController < ApplicationController
            activities_version_save(a)
           ver = Version.find(:first,:conditions=>["name=? and project_id=?",a.name,@project.id])
         else        #else update
-          ver.update_attributes(ver.attributes)
+          ver.save
         end
         #actions_save     
         sys_actions = a.actions    
@@ -72,7 +72,7 @@ class InitSelectController < ApplicationController
               act = Issue.find(:first,:conditions=>["subject=? and fixed_version_id=?",ac.name,ver.id])
             else
               act.author_id   = User.current.id
-              act.update_attributes(act.attributes)
+              act.save
             end
             #tasks_save
             sys_tasks=ac.pf_tasks
@@ -84,7 +84,7 @@ class InitSelectController < ApplicationController
                   ta = Issue.find(:first,:conditions=>["subject=? and parent_id=?",t.name,act.id])
                 else
                   ta.author_id = User.current.id
-                  ta.update_attributes(ta.attributes)
+                  ta.save
                 end
               end
             end
@@ -101,6 +101,7 @@ class InitSelectController < ApplicationController
    remove_model_help(@project)
    redirect_to  :controller=>'init_select',:action=>"select_models",:project_id => @project
   end
+  
   #view process framework of the project
   def view_process_framework
     @gantt = Redmine::Helpers::Gantt.new(params)
@@ -108,7 +109,6 @@ class InitSelectController < ApplicationController
     retrieve_query
     @query.group_by = nil
     @gantt.query = @query if @query.valid?
-    
     respond_to do |format|
       format.html  
       format.xml { render :xml => @gantt}
@@ -297,7 +297,6 @@ class InitSelectController < ApplicationController
   def remove_model_help(project)
      rm_versions = project.versions
     rm_issues = project.issues
-    
     rm_issues.each do |rm_issue| 
       if(rm_issue.if_pf)
         Issue.delete(rm_issue.id)
@@ -310,7 +309,8 @@ class InitSelectController < ApplicationController
     end
     project.model_id =nil
     project.if_config_pf=false
-    project.update_attributes(project.attributes)
+    
+    project.save
   end
   
   def find_project

@@ -1,6 +1,6 @@
 class CreateTasks < ActiveRecord::Migration
   def self.up
-    create_table :tasks do |t|
+    create_table :pf_tasks do |t|
 
       t.column :id, :integer , :null=>false
 
@@ -14,6 +14,6 @@ class CreateTasks < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :tasks
+    drop_table :pf_tasks
   end
 end

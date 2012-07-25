@@ -30,7 +30,7 @@
 </table>
 <br>
 <div style="padding:4px;">
-    <% form_tag({:action => "add_elem",:parent_id=>@parent_id,:type =>@this_type},:method => "post") do %>
+    <%= form_tag({:action => "add_elem",:parent_id=>@parent_id,:type =>@this_type},:method => "post") do %>
     <%=collection_select(:select, :select_id, @empty_subs,:id,:name,options ={:prompt => "#{l(:label_please_select)+eval(@this_type).to_p_name}"}) %>
     &nbsp;&nbsp;&nbsp;
 		 <% if !@empty_subs.empty? %>

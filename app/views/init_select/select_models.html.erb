@@ -1,12 +1,14 @@
 <%= stylesheet_link_tag "/plugin_assets/redmine_process_frameworks/stylesheets/model_attribute.css" %>
+
 <div class="contextual">
-    <% form_tag({:controller => "init_select", :action => "import_process_framework", :project_id => @project},
-    {:multipart => true} ) do %>
+    <%=form_tag({:controller => "init_select", :action => "import_process_framework", :project_id => @project},
+     :multipart => true) do %>
     <%= file_field_tag "xml_file" %>
     <%= submit_tag "#{l(:label_import_process_framework)}" %>
     <% end %>
 </div>
 <h2><%= l(:label_select_process_type) %></h2>
+
 <div class="model">
     <div class="prompt">
         <%= @project[:name] %>
@@ -53,6 +55,7 @@
     <%end
 	end %>
 </div>
+
 <% content_for :sidebar do %>
-<%= render :partial => "pf_sidebar" %>
+<%= render :partial => "init_select/pf_sidebar" , :plugin => 'redmine_process_framework' %>
 <% end %>

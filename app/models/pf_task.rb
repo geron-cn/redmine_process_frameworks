@@ -1,5 +1,5 @@
 class PfTask < ActiveRecord::Base
-  belongs_to :action , :class_name => "action" , :foreign_key => "action_id"
+  belongs_to :action , :class_name => "Action" , :foreign_key => "action_id"
   
   def attachments
        PfAttachment.find(:all,:conditions=>["foreign_id=? and type=?",self.id,"PfTask"])

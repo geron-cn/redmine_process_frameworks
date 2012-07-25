@@ -50,7 +50,7 @@ class AdminProcessModelsController < ApplicationController
     end
     model.update_attributes(model.attributes)
     
-    redirect_to  :action => 'index', :tab =>'ProcessModel'
+    redirect_to  :controller => 'admin_process_models',:action => 'index', :tab =>'ProcessModel'
   end
   
   def sort_model

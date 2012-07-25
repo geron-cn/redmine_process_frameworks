@@ -3,7 +3,7 @@ namespace :ProcessFramework do
   templates_dir =  File.join(File.dirname(__FILE__),"../templates")
   
   desc   "import default templates for process framework"
-  task (:import_templates  => :environment) do 
+  task :import_templates  => :environment do 
     file_dir = templates_dir+'/*.xml'
     FileList[file_dir].each do |xml_file| 
       uploaded_file = xml_file

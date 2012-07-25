@@ -22,12 +22,10 @@
         <tr>
             <td style="width:<%= subject_width %>px; padding:0px;">
                 <div style="position:relative;height:<%= t_height + 24 %>px;width:<%= subject_width + 1 %>px;">
-                    <div style="right:-2px;width:<%= subject_width %>px;height:<%= header_heigth %>px;background: #eee;" class="gantt_hdr">
-                    </div>
-                    <div style="right:-2px;width:<%= subject_width %>px;height:<%= t_height %>px;border-left: 1px solid #c0c0c0;overflow:hidden;" class="gantt_hdr">
-                    </div>
+                    <div style="right:-2px;width:<%= subject_width %>px;height:<%= header_heigth %>px;background: #eee;" class="gantt_hdr"></div>
+                    <div style="right:-2px;width:<%= subject_width %>px;height:<%= t_height %>px;border-left: 1px solid #c0c0c0;overflow:hidden;" class="gantt_hdr"></div>
                     <div class="gantt_subjects">
-                        <%= @gantt.subjects %>
+                        <%= @gantt.subjects.html_safe %>
                     </div>
                 </div>
             </td>
@@ -55,7 +53,7 @@
                         if @project.if_config_pf?
                         model_temp = ProcessModel.find(@project.model_id)
                         end %>
-                        <% form_tag({:controller => "init_select", :action=> "export_process_framework",
+                        <%= form_tag({:controller => "init_select", :action=> "export_process_framework",
                         :project_id => @project}, :method => "post") do %>
                         <table cellpadding="0" cellspacing="0" border="0" style="padding:7px;">
                             <tr>
@@ -88,5 +86,5 @@
         </div>
     </span>
     <% content_for :sidebar do %>
-    <%= render :partial => "pf_sidebar" %>
+    <%= render :partial => "pf_sidebar" , :plugin => 'redmine_process_framework' %>
     <% end %>

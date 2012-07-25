@@ -6,7 +6,7 @@ class ModifyPfDatabase< ActiveRecord::Migration
     
     add_column :activities, :position, :integer,:null=>false, :default=>0
     add_column :actions, :position, :integer,:null=>false, :default=>0
-    add_column :tasks, :position, :integer,:null=>false, :default=>0
+    add_column :pf_tasks, :position, :integer,:null=>false, :default=>0
     add_column :process_models, :position, :integer,:null=>false, :default=>0
   end
   
@@ -16,7 +16,7 @@ class ModifyPfDatabase< ActiveRecord::Migration
     
     remove_column :activities, :position, :integer
     remove_column :actions, :position, :integer
-    remove_column :actions, :position, :integer
+    remove_column :pf_tasks, :position, :integer
     remove_column :process_models, :position, :integer
   end  
 end

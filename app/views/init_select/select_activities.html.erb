@@ -3,7 +3,7 @@
 <%= javascript_include_tag "prototype","effects","/plugin_assets/redmine_process_frameworks/javascripts/checktree.js" %>
 <h2><%= l(:label_config_process_framework) %></h2>
 <div class="selec_main">
-    <% form_tag({:controller => "init_select", :action => "save_process_framework",:selected_model=>@selected_model , :project_id => @project}, :method => "post") do %>
+    <%= form_tag({:controller => "init_select", :action => "save_process_framework",:selected_model=>@selected_model , :project_id => @project}, :method => "post") do %>
     <div id="checktree">
         <p>
             <a herf="#" id="AllOpen" onclick="Mychecktree.SetNodes(0);Hd(this);
@@ -70,5 +70,5 @@
     new CheckList("checkboxs", "input", "a");
 </script>
 <% content_for :sidebar do %>
-<%= render :partial => "pf_sidebar" %>
+<%= render :partial => "pf_sidebar" , :plugin => 'redmine_process_framework' %>
 <% end %>
