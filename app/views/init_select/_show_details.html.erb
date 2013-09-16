@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag  "/plugin_assets/redmine_process_frameworks/stylesheets/show_details.css" %>
 <script>
-    Element.show("show_details")
+    $("#show_details").show();
 </script>
 <div class="contextual">
     <strong>
-    <a href ="#" onClick="Element.hide('show_details')">
+    <a href ="#" onClick="$('#show_details').hide();">
     <%= l(:version_status_closed) %></strong>
 </a>
 </div>

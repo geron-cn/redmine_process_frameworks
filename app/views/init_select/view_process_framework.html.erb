@@ -1,4 +1,4 @@
-<%= javascript_include_tag "prototype","effects","/plugin_assets/redmine_process_frameworks/javascripts/filexport.js" %>
+<%= javascript_include_tag "filexport.js", :plugin => "redmine_process_frameworks" %>
 <style>
     .desc {
         font-size: 12px;
@@ -43,7 +43,7 @@
                         </font>
                     </td>
                     <td bgcolor="#4574C4" align="right">
-                        <img style="cursor:pointer;" src="/images/close.png" alt="close" onclick="show_hide_div()" align="center"/>&nbsp;
+                        <img style="cursor:pointer;" src="<%=Redmine::Utils::relative_url_root%>/images/close.png" alt="close" onclick="show_hide_div()" align="center"/>&nbsp;
                     </td>
                 </tr>
                 <tr>

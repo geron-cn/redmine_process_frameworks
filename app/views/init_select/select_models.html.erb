@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "/plugin_assets/redmine_process_frameworks/stylesheets/model_attribute.css" %>
+<%= stylesheet_link_tag "model_attribute.css", :plugin => 'redmine_process_frameworks' %>
 
 <div class="contextual">
     <%=form_tag({:controller => "init_select", :action => "import_process_framework", :project_id => @project},

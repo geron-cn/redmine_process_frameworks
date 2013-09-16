@@ -14,7 +14,7 @@ RedmineApp::Application.routes.draw do
       get ':parent_type/:parent_id/show_subs', :controller => 'admin_process_models', :action => 'show_subs'
       get ':type/new', :controller => 'admin_process_models', :action => 'new_elem'
       get ':type/:parent_id/new', :controller => 'admin_process_models', :action => 'new_elem'
-      get ':type/:elem/show_details', :controller => 'admin_process_models', :action => 'show_details'
+      get ':type:elem/show_details', :controller => 'admin_process_models', :action => 'show_details'
       match 'process_models/sort',:controller => 'admin_process_models', :action=>'sort_model', :via => :post
       get 'process_models/open_close/:elem',:controller => 'admin_process_models', :action=>'open_close_model'
       
