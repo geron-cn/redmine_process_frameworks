@@ -11,12 +11,12 @@
 
 <div class="model">
     <div class="prompt">
-        <%= @project[:name] %>
+        <%#= @project[:name] %>
         <% if @project[:if_config_pf] %>
-        <%=l(:label_yijing) + l(:label_config_model) %>&nbsp;<%= ProcessModel.find(@project[:model_id]).name %>
+        <%=l(:label_yijing) + " " + l(:label_config_model) %>:&nbsp;<b>"<%= ProcessModel.find(@project[:model_id]).name %>"</b>
         <% view_str = l(:button_view)
         else view_str = l(:view_curr_process) %>
-        <%=l(:label_wei)+ l(:label_config_model) %>&nbsp;<%end %>
+        <%=l(:label_wei) + " " +  l(:label_config_model) %>&nbsp;<%end %>
         <div class="prompt_show">
             <%= link_to  view_str,{:action => "view_process_framework",:project_id => @project},:class=>"icon icon-copy"%>&nbsp;
 						 <% if @project[:if_config_pf] %>

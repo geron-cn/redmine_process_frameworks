@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 class InitSelectController < ApplicationController
    unloadable   #向上兼容不同版本的  rails
@@ -252,7 +253,7 @@ class InitSelectController < ApplicationController
       ver.name = activity.name
       ver.description = activity.description
       version = Version.find(:first, :conditions => ["project_id = ?",@project.id], :order => 'effective_date DESC')
-      if version.nil?
+      if version.nil? or version.effective_date.blank?
          tmp_date = Time.now.advance(:days => 7)
       else
          tmp_date =version.effective_date.advance(:days => 7)
