@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class AdminProcessModelsController < ApplicationController
 
-  unloadable   #向上兼容不同版本的  rails
+  unloadable
 
   layout 'admin'
   before_filter :require_admin
@@ -187,7 +187,6 @@ class AdminProcessModelsController < ApplicationController
   def show_details
     @type = params[:type]
     @elem= eval(@type).find(params[:elem])
-
   end
 
   def update_elem
@@ -197,7 +196,7 @@ class AdminProcessModelsController < ApplicationController
     if @elem.update_attributes(params["attrs"])
       flash[:notice] = "Updated successfully"
     else
-      flash[:error] = "Some problem during updation"
+      flash[:error] = "Failed to update! Try again or report to Redmine admin."
     end
 
     redirect_to :action => :index, :tab => type
