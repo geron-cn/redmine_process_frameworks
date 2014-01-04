@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_process_frameworks do
   author 'Jianqiang.guo Jie.li Meng.yan'
   author_url 'mailto:geron_ever@sina.cn'   
   description 'Modelling the software process.'
-  version '1.0.1'
+  version '1.1'
   url 'http://example.com/path/to/plugin'
 
 
