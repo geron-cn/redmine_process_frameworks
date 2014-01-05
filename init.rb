@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_process_frameworks do
   author 'Jianqiang.guo Jie.li Meng.yan'
   author_url 'mailto:geron_ever@sina.cn'   
   description 'Modelling the software process.'
-  version '1.1'
+  version '1.2'
   url 'http://example.com/path/to/plugin'
 
   settings :default => {'issue_default_tracker' => '3', 'issue_default_priority' => '4', 'issue_default_status' => '1', 'sub_issue_default_tracker' => '3', 'sub_issue_default_priority' => '4', 'sub_issue_default_status' => '1'}, :partial => 'admin_process_models/configure_partial_redmine_framework'
