@@ -2,10 +2,10 @@ require 'redmine'
 
 Redmine::Plugin.register :redmine_process_frameworks do
   name 'Redmine Process Frameworks plugin'
-  author 'Jianqiang.guo Jie.li Meng.yan'
-  author_url 'mailto:geron_ever@sina.cn'   
+  author 'Devaroop. Bhattacharya'
+  author_url 'mailto:devaroop@yahoo.co.in'   
   description 'Modelling the software process.'
-  version '1.2'
+  version '2.0'
   url 'http://example.com/path/to/plugin'
 
   settings :default => {'issue_default_tracker' => '3', 'issue_default_priority' => '4', 'issue_default_status' => '1', 'sub_issue_default_tracker' => '3', 'sub_issue_default_priority' => '4', 'sub_issue_default_status' => '1'}, :partial => 'admin_process_models/configure_partial_redmine_framework'

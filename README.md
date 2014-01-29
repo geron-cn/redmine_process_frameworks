@@ -18,7 +18,7 @@ Installation notes
 Restart the Redmine                 # that's not necessary but do it better
 
 
-Version 1.0.1
+Version 2.0(Revamped)
 -------------
 Compatible with: 	
 --------------
