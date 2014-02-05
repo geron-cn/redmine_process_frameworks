@@ -16,9 +16,9 @@ Installation notes
 	rake db:migrate_plugins   # install the plugin
 	rake ProcessFramework:import_templates    # import the default Process Models  
 Restart the Redmine                 # that's not necessary but do it better
-http://www.redmine.org/plugins/process_framework
 
-Version 1.0.1
+
+Version 2.0(Revamped)
 -------------
 Compatible with: 	
 --------------
